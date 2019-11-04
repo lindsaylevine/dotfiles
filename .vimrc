@@ -6,6 +6,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'gabesoft/vim-ags'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'scrooloose/nerdtree'
@@ -41,7 +42,7 @@ set softtabstop=2
 set tabstop=8
 set undofile  " remember undo history
 set undodir=~/.vim/undofile/
-set wildignore=log/**,node_modules/**,tmp/**
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules/     " MacOSX/Linux
 set wildmenu  " fancy autocomplete for commands (try :color <tab> for demo)
 set wildmode=longest,list,full
 
@@ -105,6 +106,11 @@ if executable('ag')
 
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' " Use in CtrlP
   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+  let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|node_modules\|public\/images\|public\/system\|data\|log\|tmp$',
+	\ 'file': '\.exe$\|\.so$\|\.dat$'
+	\ }
 
   " bind K to grep word under cursor
   nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
