@@ -24,6 +24,7 @@ syntax on
 set autoindent
 set autoread
 set encoding=utf-8
+set expandtab
 set history=1000
 set hlsearch
 set ignorecase
@@ -37,9 +38,8 @@ set shiftwidth=2
 set showcmd  " extra info in the bottom bar when in visual mode
 set showmatch
 set smartcase  " only do case-sensitive search if there's a cap in the pattern
-set tabstop=2
 set softtabstop=2
-set tabstop=8
+set tabstop=2
 set undofile  " remember undo history
 set undodir=~/.vim/undofile/
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules/     " MacOSX/Linux
@@ -161,10 +161,3 @@ set ignorecase
 set smartcase
 set showmatch
 map <leader><space> :let @/=''<cr> " clear search
-
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
